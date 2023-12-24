@@ -1,5 +1,6 @@
 import { useState } from "react"
 import Navigation from "./components/Navigation"
+import MainScoreboard from "./pages/MainScoreboard"
 import SelectPlayers from "./pages/SelectPlayers"
 import Welcome from "./pages/Welcome"
 
@@ -14,8 +15,11 @@ function App() {
 
   return (
     <div className="flex flex-col justify-between w-screen h-screen p-0 m-0 text-white bg-gradient-to-br from-gray-900 to-gray-700">
+      <div className='h-[90%]'>
      {page === 0 && ( <Welcome setPage={setPage}/>)}
      {page === 1 && (  <SelectPlayers players={players} setPlayers={setPlayers}/>)}
+     {page === 2 && ( <MainScoreboard players={players} setPlayers={setPlayers}/>)}
+     </div>
      <Navigation pageNumber={page} setPage={setPage}/>
     </div>
   )
