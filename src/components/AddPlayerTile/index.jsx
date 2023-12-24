@@ -1,3 +1,6 @@
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 const AddPlayerTile = ({setPlayers, players}) => {
 
     const handleClick = () => {
@@ -12,10 +15,12 @@ const AddPlayerTile = ({setPlayers, players}) => {
     }
     return (      
            <div className="w-full h-full  p-2 ">
-    <div className="w-full flex flex-col justify-center rounded-lg items-center h-full border-4 border-gray-300">
-    <button className="text-xl" onClick={() => handleClick()}>Add player</button>
+    <button onClick={() => handleClick()} className="w-full flex flex-col justify-center rounded-lg items-center h-full border-4 border-gray-300">
+    <div className="text-xl flex flex-col items-center justify-start" > 
 
-    </div>
+<div className="flex items-center justify-center w-8 h-8 mb-2 bg-gray-400 text-black rounded-full"><FontAwesomeIcon icon={faPlus} /></div> Add player</div>
+
+    </button>
     
 </div> );
 }

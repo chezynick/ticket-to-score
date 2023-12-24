@@ -6,7 +6,7 @@ const SelectPlayers = ({ players, setPlayers }) => {
     return (<div className="w-full h-full pb-12">
         <div className="w-full flex justify-center py-1">SELECT PLAYERS</div>
         <div className="grid grid-cols-2 h-full w-full">
-    {chosenPlayers.map(player => <PlayerTile key={player.name} player={player} setPlayers={setPlayers}/>)}
+    {chosenPlayers.map(player => <PlayerTile key={player.name} player={player} setPlayers={setPlayers} players={players}/>)}
     {chosenPlayers.length !== 4 && <AddPlayerTile setPlayers={setPlayers} players={players}/>}
         </div>
         
