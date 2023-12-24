@@ -1,15 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react"
+import SelectPlayers from "./pages/SelectPlayers"
+import Welcome from "./pages/Welcome"
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [page, setPage] = useState(0)
+  const [players, setPlayers] = useState([
+  { name: 'player one', colour: 0, score: 0, enabled: true},
+  { name: 'player two', colour: 1, score: 0, enabled: true},
+  { name: 'player three', colour: 2, score: 0, enabled: false},
+  { name: 'player four', colour: 3, score: 0, enabled: false}
+])
 
   return (
-    <>
-   hello
-    </>
+    <div className="text-white m-0 p-0 flex flex-col justify-between w-screen h-screen bg-gradient-to-br from-gray-900 to-gray-700">
+     {page === 0 && ( <Welcome setPage={setPage}/>)}
+     {page === 1 && (  <SelectPlayers players={players} setPlayers={setPlayers}/>)}
+     <div>navigation</div>
+    </div>
   )
 }
 
