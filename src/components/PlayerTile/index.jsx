@@ -6,7 +6,7 @@ const PlayerTile = ({player, setPlayers, players}) => {
     const [playerName, setPlayerName] = useState(player.name)
     const [selectedColour, setSelectedColour] =useState(player.colour)
     const updatePlayer = () => {
-        const savedPlayer = {...player, name: playerName};
+        const savedPlayer = {...player, name: playerName, colour: selectedColour};
         setPlayers(players.map(ply => {
             if(ply.id === player.id){
                 return savedPlayer
