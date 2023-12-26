@@ -1,5 +1,6 @@
 import { useState } from "react"
 import Navigation from "./components/Navigation"
+import FinalCountUp from "./pages/FinalCountUp"
 import LongestTrain from "./pages/LongestTrain"
 import MainScoreboard from "./pages/MainScoreboard"
 import SelectPlayers from "./pages/SelectPlayers"
@@ -21,6 +22,7 @@ function App() {
      {page === 1 && (  <SelectPlayers players={players} setPlayers={setPlayers}/>)}
      {page === 2 && ( <MainScoreboard players={players} setPlayers={setPlayers}/>)}
      {page === 3 && ( <LongestTrain players={players} setPlayers={setPlayers}/>)}
+     {page === 4 && (<FinalCountUp players={players} setPlayers={setPlayers}/>)}
      </div>
      <Navigation pageNumber={page} setPage={setPage}/>
     </div>

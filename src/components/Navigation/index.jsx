@@ -1,7 +1,7 @@
 import Button from "../Button";
 
 const Navigation = ({pageNumber, setPage }) => {
-    if(pageNumber === 0 ) return null;
+    if(pageNumber === 0 || pageNumber === 4 ) return null;
     const buttonWording = ['','Start','Complete game', 'Award longest train']
     return ( 
         <div className="flex w-full py-2 justify-evenly">
