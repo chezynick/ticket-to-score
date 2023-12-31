@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Button from "../../components/Button";
+import FullWidthButton from "../../components/FullWidthButtons";
+import colours from "../../utils/colours";
 
 const PlayerScoreSheet = ({onClick, players, currentPlayer, setPlayers}) => {
     const [culmulativeScore, setCulmativeScore] = useState(0)
@@ -26,21 +28,24 @@ const PlayerScoreSheet = ({onClick, players, currentPlayer, setPlayers}) => {
         setDestinationCardWorth(0)
         onClick();
     }
-    return ( <div className="flex flex-col justify-between w-full ">
-        <div className="flex flex-col justify-center">
-        <h1>{currentPlayer.name}</h1>
-        <input className="mx-4 text-gray-800" value={destinationCardWorth} type='text' onChange={(e)=>setDestinationCardWorth(e.target.value)}/>
+    return ( <div className="flex flex-col justify-between w-full h-screen">
+
+        <div className="flex flex-col justify-center px-4">
+        <div className="w-full py-1 text-center">Add each destination card in turn for</div>
+        <div className="flex justify-center pb-4 text-5xl"><h1>{currentPlayer.name}</h1></div> 
+        <div className={`${colours.find(col => col.id === currentPlayer.colour).bg } w-full h-12`}/>
+        <input className="my-6 text-5xl text-center text-gray-800 " value={destinationCardWorth} type='text' onChange={(e)=>setDestinationCardWorth(e.target.value)}/>
         <div className="flex justify-between w-full py-6">
             <Button outlineButton text="Incomplete" onClick={removePoints}/>
             <Button  text="Completed" onClick={addPoints}/>
         </div>
         </div>
 
-        <div className="flex justify-between w-full py-6">
-            <Button outlineButton text="Reset player score" onClick={()=>{
+        <div className="grid w-full grid-cols-2 ">
+            <FullWidthButton outlineButton text="Reset player score" onClick={()=>{
                 setDestinationCardWorth(0)}
                 }/>
-            <Button  text="Next Player" onClick={completePlayerScoring}/>
+            <FullWidthButton  text="Next Player" onClick={completePlayerScoring}/>
         </div>
         
     </div> );
