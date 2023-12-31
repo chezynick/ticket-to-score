@@ -20,7 +20,7 @@ const sortOrderAndRemoveUnusedPlayers = () => {
   setPlayers(sortedByScoreOrderLowestFirst)
 }
   return (
-    <div className="flex flex-col justify-between w-screen h-screen p-0 m-0 text-white bg-gradient-to-br from-gray-900 to-gray-700">
+    <div className="flex flex-col justify-between w-screen h-screen p-0 m-0 overflow-hidden text-white bg-gradient-to-br from-gray-900 to-gray-700">
       <div className='h-[90%]'>
      {page === 0 && ( <Welcome setPage={setPage}/>)}
      {page === 1 && ( <SelectPlayers players={players} setPlayers={setPlayers}/>)}

@@ -1,6 +1,5 @@
 import { useState } from "react";
-import Carraige from "../../components/Carraige";
-import Engine from "../../components/Engine";
+import MovingTrain from "../../components/MovingTrain";
 
 const Welcome = ({setPage}) => {
     const [startTrain, setStartTrain] = useState(false)
@@ -9,14 +8,12 @@ const Welcome = ({setPage}) => {
         setTimeout(()=>setPage(1),2000)
     }
     return (
-        <div className="relative flex items-center justify-center w-full h-full">
-            <div className={`absolute  top-10 h-4 transition-all duration-[2000ms] ease-in-out flex ${startTrain ? 'left-[105%]' : '-left-[150px]'}`}>
-           <div className="flex items-end justify-center h-10"> <Carraige /><Carraige /><Engine /></div>
-            </div>
+        <div className="relative flex items-center justify-center w-screen h-full overflow-hidden">
+             <MovingTrain chosenColour="text-green-500" startTrain={startTrain} top='top-[20%]'/>
+             <MovingTrain chosenColour="text-blue-500" startTrain={startTrain} top='top-[30%]'/>
             <button onClick={()=>handleClick()} className="text-xl text-gray-300">Start game</button>
-            <div className={`absolute  bottom-10 h-4 transition-all duration-[2000ms] ease-in-out flex ${startTrain ? 'right-[105%]' : '-right-[180px]'}`}>
-           <div className="flex items-end justify-center h-10"> <Carraige /><Carraige /><Carraige /><Engine /></div>
-            </div>
+            <MovingTrain chosenColour="text-red-500" startTrain={startTrain} top='top-[70%]'/>
+            <MovingTrain chosenColour="text-yellow-500" startTrain={startTrain} top='top-[85%]'/>
         </div>
     )
 };
