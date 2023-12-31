@@ -11,7 +11,10 @@ const MainScoreboard = ({players, setPlayers}) => {
         setTimeout(()=>setPointsAddedInfo(null), 1200)
        const updatedPlayers = players.map(player => {
         if(player.id === selectedPlayer.id){
-            return {...player, score: player.score + trainSelection.pointsToAward, trainsRemaining: player.trainsRemaining - trainSelection.numberOfTrains}
+            return {...player,
+                score: player.score + trainSelection.pointsToAward,
+                trainsRemaining: player.trainsRemaining - trainSelection.numberOfTrains,
+                history: [...player.history, trainSelection.numberOfTrains]}
         }
         return player
        });
