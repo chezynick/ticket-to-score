@@ -6,7 +6,7 @@ const TrainSelector = ({addPointsToPlayer, selectedPlayer}) => {
    
     return ( <div className="w-screen h-full ">
         <div className="w-full text-center">Add points to {selectedPlayer.name}</div>
-        <div className="grid h-full grid-cols-1 grid-rows-6">
+        <div className="grid h-full grid-cols-1 grid-rows-7">
             {trainPoints.map((train, index) => {
                 const carraigeArray = Array(train.numberOfTrains -1).fill('carraige') 
                 return (

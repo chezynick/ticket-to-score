@@ -8,7 +8,7 @@ const PlayerScoreTile = ({player, setSelectedPlayer }) => {
     return ( 
         <div className="w-full h-full p-2">
             <div  className="flex items-center justify-between w-full h-full border-4 border-gray-300 rounded-lg">
-                <div className={`h-full w-1/6 ${playerColour.bg}`}/>
+                <div className={`h-full w-1/6 border-r-2 border-gray-300 ${playerColour.bg}`}/>
                 <div className="flex flex-col items-center justify-center w-2/6 h-full">
                     <span className="pb-2 text-xl">{player.name}</span>
                     <span className="text-xs">Trains: {player.trainsRemaining}/50</span>
