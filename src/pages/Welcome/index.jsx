@@ -1,9 +1,15 @@
 import { useState } from "react";
 import MovingTrain from "../../components/MovingTrain";
+import useSound from 'use-sound';
+import Horny from '../../assets/horny.flac';
 
 const Welcome = ({setPage}) => {
     const [startTrain, setStartTrain] = useState(false)
+    const [playHorn] = useSound(
+        Horny
+      );
   const handleClick = ()=>{
+    playHorn();
         setTimeout(()=> setStartTrain(true),100)
         setTimeout(()=>setPage(1),2000)
     }
