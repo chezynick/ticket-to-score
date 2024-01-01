@@ -13,7 +13,7 @@ const PlayerScoreTile = ({player, setSelectedPlayer }) => {
                 </button>
                 <div className="flex flex-col items-center justify-center w-2/6 h-full">
                     <span className="pb-2 text-xl">{player.name}</span>
-                    <span className="text-xs">Trains: {player.trainsRemaining}/50</span>
+                    <span className="text-xs">Trains: {player.trainsRemaining}/45</span>
                     <TrainHistory history={player.history}/>
                 </div>
                 <div className='flex items-center justify-center w-2/6 h-full text-5xl text-gray-800 bg-gray-300'>{player.score}</div>

@@ -9,10 +9,10 @@ import Welcome from "./pages/Welcome"
 function App() {
   const [page, setPage] = useState(0)
   const [players, setPlayers] = useState([
-  { id: 1, name: 'player one', colour: 0, score: 0, enabled: true, trainsRemaining: 50, history: []},
-  {  id: 2, name: 'player two', colour: 1, score: 0, enabled: true, trainsRemaining: 50, history: []},
-  {  id: 3, name: 'player three', colour: 2, score: 0, enabled: false, trainsRemaining: 50, history: []},
-  {  id: 4, name: 'player four', colour: 3, score: 0, enabled: false, trainsRemaining: 50, history: []}
+  { id: 1, name: 'player one', colour: 0, score: 0, enabled: true, trainsRemaining: 45, history: []},
+  {  id: 2, name: 'player two', colour: 1, score: 0, enabled: true, trainsRemaining: 45, history: []},
+  {  id: 3, name: 'player three', colour: 2, score: 0, enabled: false, trainsRemaining: 45, history: []},
+  {  id: 4, name: 'player four', colour: 3, score: 0, enabled: false, trainsRemaining: 45, history: []}
 ])
 const sortOrderAndRemoveUnusedPlayers = () => {
   const enabledPlayersOnly = players.filter(player => player.enabled);
