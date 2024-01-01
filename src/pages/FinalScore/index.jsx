@@ -16,10 +16,10 @@ const FinalScore = ({players}) => {
             {!showFinalScore ? <div className="text-xl tex-gray-300">
                 And the winner is....</div> : <div className="flex flex-col items-center justify-center">
                         {isDraw && <div>Its a draw!</div>}
-                        {isDraw && organisedPlayers.map(player => (<div key={player.id}>{player.name}: {player.score}</div>))}
+                        {isDraw && organisedPlayers.map(player => (<div className="text-3xl" key={player.id}>{player.name}: {player.score}</div>))}
                        
-                        {!isDraw && (<div className="pb-4 text-3xl text-gray-300">{theWinner.name}: {theWinner.score}</div>)}
-                        {!isDraw && theRest.map(player => (<div key={player.id}>{player.name}: {player.score}</div>))}
+                        {!isDraw && (<div className="pb-4 text-5xl text-gray-300">{theWinner.name}: {theWinner.score}</div>)}
+                        {!isDraw && theRest.map(player => (<div className="text-3xl" key={player.id}>{player.name}: {player.score}</div>))}
                     </div>}
 
         </div>

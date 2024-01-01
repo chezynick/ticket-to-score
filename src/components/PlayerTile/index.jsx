@@ -22,7 +22,7 @@ const PlayerTile = ({player, setPlayers, players}) => {
     return (
         <div className="w-full h-full p-2 ">
             <div className="relative flex flex-col items-center justify-center w-full h-full border-4 border-gray-300 rounded-lg">
-                <input placeholder={player.name} className="w-3/4 text-center text-black rounded-full" type='text' value={playerName} maxLength={20} onChange={(e)=>setPlayerName(e.target.value)}/>
+                <input placeholder={player.name} className="w-5/6 py-1 text-2xl text-center text-black rounded-full" type='text' value={playerName} maxLength={20} onChange={(e)=>setPlayerName(e.target.value)}/>
                 <ColourSelector selectedColour={selectedColour} setSelectedColour={setSelectedColour}/>
                 {showButtons && (<div className="absolute bottom-0 flex items-center justify-center pb-2 mt-4 space-x-2">
                     <Button onClick={undo} outlineButton text="Undo" />
