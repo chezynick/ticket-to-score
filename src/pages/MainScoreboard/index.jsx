@@ -21,12 +21,32 @@ const MainScoreboard = ({players, setPlayers}) => {
        setPlayers(updatedPlayers);
        setSelectedPlayer(null)
     }
+    const removePointsFromPlayer = (trainSelection) => {
+        setPointsAddedInfo({pointsToAdd: trainSelection.pointsToAward, positive: false})
+        setTimeout(()=>setPointsAddedInfo(null), 1200)
+       const updatedPlayers = players.map(player => {
+        console.log('hello')
+        const historyToRemove = player.history.findIndex(a => a === trainSelection.numberOfTrains);
+        const updatedHistory = player.history.filter((a,index) => index !== historyToRemove);
+        console.log(historyToRemove, updatedHistory)
+        if(player.id === selectedPlayer.id){
+            return {...player,
+                score: player.score - trainSelection.pointsToAward,
+                trainsRemaining: player.trainsRemaining + trainSelection.numberOfTrains,
+                history: updatedHistory}
+        }
+        return player
+       });
+       console.log(updatedPlayers[0].history,'new update')
+       setPlayers(updatedPlayers);
+       setSelectedPlayer(null)
+    }
     const enabledPlayers = players.filter(player => player.enabled)
-
+    console.log(players[0].history,'original')
     return ( 
         <div className="w-screen h-full ">
             {pointsAddedInfo && <PointsAddedModal pointsInfo={pointsAddedInfo}/>}
-            {selectedPlayer && <TrainSelector selectedPlayer={selectedPlayer} addPointsToPlayer={addPointsToPlayer}/>}
+            {selectedPlayer && <TrainSelector selectedPlayer={selectedPlayer} addPointsToPlayer={addPointsToPlayer} removePointsFromPlayer={removePointsFromPlayer}/>}
             {!selectedPlayer &&
             <div className="grid w-full h-full grid-cols-1 grid-rows-4">
              {enabledPlayers.map(player => <PlayerScoreTile player={player} setPlayers={setPlayers} setSelectedPlayer={setSelectedPlayer} key={player.id}/>)}</div>}
