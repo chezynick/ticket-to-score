@@ -25,10 +25,8 @@ const MainScoreboard = ({players, setPlayers}) => {
         setPointsAddedInfo({pointsToAdd: trainSelection.pointsToAward, positive: false})
         setTimeout(()=>setPointsAddedInfo(null), 1200)
        const updatedPlayers = players.map(player => {
-        console.log('hello')
         const historyToRemove = player.history.findIndex(a => a === trainSelection.numberOfTrains);
         const updatedHistory = player.history.filter((a,index) => index !== historyToRemove);
-        console.log(historyToRemove, updatedHistory)
         if(player.id === selectedPlayer.id){
             return {...player,
                 score: player.score - trainSelection.pointsToAward,
@@ -37,12 +35,10 @@ const MainScoreboard = ({players, setPlayers}) => {
         }
         return player
        });
-       console.log(updatedPlayers[0].history,'new update')
        setPlayers(updatedPlayers);
        setSelectedPlayer(null)
     }
     const enabledPlayers = players.filter(player => player.enabled)
-    console.log(players[0].history,'original')
     return ( 
         <div className="w-screen h-full ">
             {pointsAddedInfo && <PointsAddedModal pointsInfo={pointsAddedInfo}/>}
